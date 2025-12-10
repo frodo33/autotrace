@@ -1,10 +1,11 @@
 import { GlassDemo } from "./showTheme"
 
-const App = () => {
-
-  return (
-    <GlassDemo />
-  )
+export type Asdf = {
+  asdf: string
 }
+
+const App = (): Asdf => (
+  <GlassDemo />
+)
 
 export default App
