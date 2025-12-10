@@ -1,4 +1,3 @@
-import "./App.css"
 import { GlassDemo } from "./showTheme"
 
 const App = () => {
