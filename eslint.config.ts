@@ -1,19 +1,15 @@
+import path from "path"
+
 import js from "@eslint/js"
-import globals from "globals"
+import { defineConfig, globalIgnores } from "eslint/config"
+import importPlugin from "eslint-plugin-import"
+import prettierPlugin from "eslint-plugin-prettier"
+import reactPlugin from "eslint-plugin-react"
 import reactHooks from "eslint-plugin-react-hooks"
 import reactRefresh from "eslint-plugin-react-refresh"
-import tseslint from "typescript-eslint"
-import reactPlugin from "eslint-plugin-react"
-import importPlugin from "eslint-plugin-import"
 import tailwindPlugin from "eslint-plugin-tailwindcss"
-import prettierPlugin from "eslint-plugin-prettier"
-import { defineConfig, globalIgnores } from "eslint/config"
-
-import { fileURLToPath } from "url"
-import { dirname, resolve } from "path"
-
-const __filename = fileURLToPath(import.meta.url)
-const __dirname = dirname(__filename)
+import globals from "globals"
+import tseslint from "typescript-eslint"
 
 export default defineConfig([
   globalIgnores(["dist"]),
@@ -22,7 +18,7 @@ export default defineConfig([
     settings: {
       react: { version: "detect" },
       tailwindcss: {
-        config: resolve(__dirname, "tailwind.config.js"),
+        config: path.resolve(__dirname, "tailwind.config.js"),
       },
     },
     plugins: {
@@ -49,6 +45,10 @@ export default defineConfig([
       "object-shorthand": ["error", "always"],
       "arrow-body-style": ["error", "as-needed"],
       "@typescript-eslint/consistent-type-definitions": ["error", "type"],
+      "tailwindcss/no-contradicting-classname": "warn",
+      "tailwindcss/enforces-shorthand": "warn",
+      "tailwindcss/no-custom-classname": "off",
+      "tailwindcss/classnames-order": "error",
       "react/function-component-definition": [
         "warn",
         {
@@ -68,10 +68,6 @@ export default defineConfig([
               position: "before",
             },
             {
-              pattern: "@mui/.*",
-              group: "external",
-            },
-            {
               pattern: "@/**",
               group: "internal",
             },
@@ -84,10 +80,6 @@ export default defineConfig([
           },
         },
       ],
-      "tailwindcss/no-contradicting-classname": "warn",
-      "tailwindcss/enforces-shorthand": "warn",
-      "tailwindcss/no-custom-classname": "off",
-      "tailwindcss/classnames-order": "error",
     },
   },
 ])
