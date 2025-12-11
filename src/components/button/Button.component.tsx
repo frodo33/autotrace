@@ -23,7 +23,7 @@ export const Button = ({
       disabled={disabled || loading}
       {...props}
     >
-      <span>
+      <span className="inline-flex h-full w-full items-center justify-center gap-2">
         {loading ? <ButtonSpinner /> : null}
         {props.children}
       </span>
