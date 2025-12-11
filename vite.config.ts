@@ -1,16 +1,19 @@
+/// <reference types="vitest/config" />
 import tailwindcss from "@tailwindcss/vite"
-import react from "@vitejs/plugin-react";
-import path from "path";
-import { defineConfig } from "vite";
-import eslintPlugin from "@nabla/vite-plugin-eslint";
+import react from "@vitejs/plugin-react"
+import path from "path"
+import { defineConfig } from "vite"
+import eslintPlugin from "@nabla/vite-plugin-eslint"
 
 // https://vite.dev/config/
 export default defineConfig({
-  plugins: [
-    react(),
-    tailwindcss(),
-    eslintPlugin()
-  ],
+  plugins: [react(), tailwindcss(), eslintPlugin()],
+  test: {
+    globals: true,
+    environment: "jsdom",
+    setupFiles: "./vitest.setup.ts",
+    include: ["src/**/*.{test,spec}.{ts,tsx}"],
+  },
   resolve: {
     alias: {
       "@": path.resolve(__dirname, "./src"),
@@ -25,4 +28,4 @@ export default defineConfig({
       cert: "./.cert/cert.pem",
     },
   },
-});
+})

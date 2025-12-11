@@ -6,7 +6,8 @@ import { cn } from "@/lib/utils"
 export const ButtonSpinner = ({ className, ...props }: ComponentProps<"svg">) => (
   <Loader2Icon
     role="status"
-    aria-label="Loading"
+    aria-hidden="true"
+    data-testid="button-spinner"
     className={cn("size-4 animate-spin", className)}
     {...props}
   />

@@ -23,8 +23,10 @@ export const Button = ({
       disabled={disabled || loading}
       {...props}
     >
-      {loading ? <ButtonSpinner /> : null}
-      {props.children}
+      <span>
+        {loading ? <ButtonSpinner /> : null}
+        {props.children}
+      </span>
     </Comp>
   )
 }
