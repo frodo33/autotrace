@@ -18,7 +18,7 @@ export default defineConfig([
     settings: {
       react: { version: "detect" },
       tailwindcss: {
-        config: path.resolve(__dirname, "tailwind.config.js"),
+        config: path.resolve(__dirname, "tailwind.config.ts"),
       },
     },
     plugins: {
@@ -56,6 +56,13 @@ export default defineConfig([
           unnamedComponents: "arrow-function",
         },
       ],
+      "@typescript-eslint/consistent-type-imports": [
+        "warn",
+        {
+          prefer: "type-imports",
+          disallowTypeAnnotations: false,
+        },
+      ],
       "import/order": [
         "error",
         {
@@ -66,10 +73,6 @@ export default defineConfig([
               pattern: "react",
               group: "external",
               position: "before",
-            },
-            {
-              pattern: "@/**",
-              group: "internal",
             },
           ],
           pathGroupsExcludedImportTypes: ["react"],
