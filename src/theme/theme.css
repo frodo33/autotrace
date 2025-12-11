@@ -9,7 +9,6 @@
   --color-primary: var(--primary);
   --color-primary-foreground: var(--primary-foreground);
   --color-destructive: var(--destructive);
-  --color-border: var(--border);
 }
 
 :root {
@@ -28,8 +27,6 @@
 
   --destructive: #ef4444;
   --destructive-foreground: #fff;
-
-  --border: rgba(255, 255, 255, 0.2);
 }
 
 .dark {
@@ -48,6 +45,4 @@
 
   --destructive: #ef4444;
   --destructive-foreground: #ffffff;
-
-  --border: rgba(255, 255, 255, 0.1);
 }
