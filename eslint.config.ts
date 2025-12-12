@@ -50,6 +50,11 @@ export default defineConfig([
       "tailwindcss/enforces-shorthand": "warn",
       "tailwindcss/no-custom-classname": "off",
       "tailwindcss/classnames-order": "error",
+      "no-multiple-empty-lines": ["error", {
+        "max": 1,
+        "maxEOF": 0,
+        "maxBOF": 0
+      }],
       "react/function-component-definition": [
         "warn",
         {
