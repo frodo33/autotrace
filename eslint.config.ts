@@ -3,7 +3,6 @@ import path from "path"
 import js from "@eslint/js"
 import { defineConfig, globalIgnores } from "eslint/config"
 import importPlugin from "eslint-plugin-import"
-import prettierPlugin from "eslint-plugin-prettier"
 import reactPlugin from "eslint-plugin-react"
 import reactHooks from "eslint-plugin-react-hooks"
 import reactRefresh from "eslint-plugin-react-refresh"
@@ -24,7 +23,6 @@ export default defineConfig([
     plugins: {
       import: importPlugin,
       tailwindcss: tailwindPlugin,
-      prettier: prettierPlugin,
     },
     extends: [
       js.configs.recommended,
@@ -40,7 +38,10 @@ export default defineConfig([
       globals: globals.browser,
     },
     rules: {
-      "prettier/prettier": "error",
+      "indent": ["error", 2],
+      "quotes": ["error", "double"],
+      "jsx-quotes": ["error", "prefer-double"],
+      "object-curly-spacing": ["error", "always"],
       "no-console": "error",
       "object-shorthand": ["error", "always"],
       "arrow-body-style": ["error", "as-needed"],
