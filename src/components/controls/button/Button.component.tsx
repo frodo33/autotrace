@@ -23,10 +23,10 @@ export const Button = ({
       disabled={disabled || loading}
       {...props}
     >
-      <>
-        {loading ? <ButtonSpinner /> : null}
+      <span className="flex items-center justify-center gap-2">
+        {loading && <ButtonSpinner />}
         {props.children}
-      </>
+      </span>
     </Comp>
   )
 }
