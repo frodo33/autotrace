@@ -18,7 +18,10 @@ export const TextField = <T extends boolean = false>({
   addons,
   textarea,
   ...props
-}: TextFieldProps<T>) => (
+}: TextFieldProps<T>) => {
+  const helperId = helperText ? `${id}-helper` : undefined
+  
+  return (
     <>
       {label && <Label htmlFor={id} className="mb-1">{label}</Label>}
       <InputGroup
@@ -36,7 +39,7 @@ export const TextField = <T extends boolean = false>({
             value={value}
             onChange={onChange}
             aria-invalid={!!invalid}
-            aria-describedby={`${id}-helper`}
+            aria-describedby={helperId}
             {...(props as Omit<ComponentProps<"textarea">, keyof TextFieldOwnProps>)}
           />
         ) : (
@@ -46,7 +49,7 @@ export const TextField = <T extends boolean = false>({
             value={value}
             onChange={onChange}
             aria-invalid={!!invalid}
-            aria-describedby={`${id}-helper`}
+            aria-describedby={helperId}
             {...(props as Omit<ComponentProps<"input">, keyof TextFieldOwnProps>)}
           />
         )}
@@ -68,3 +71,4 @@ export const TextField = <T extends boolean = false>({
       )}
     </>
   )
+}
