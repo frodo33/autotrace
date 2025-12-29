@@ -3,19 +3,20 @@ import { createRootRoute, createRoute, Outlet } from "@tanstack/react-router";
 import { PrivateLayout } from "../layouts/Private.layout";
 import { PublicLayout } from "../layouts/Public.layout";
 import { LoginPage } from "../pages/auth/LoginPage/Login.page";
+import { registerRoute } from "../pages/auth/RegisterPage/Register.page";
 import { DashboardPage } from "../pages/DashboardPage/DashboardPage.page";
 
 const rootRoute = createRootRoute({
   component: Outlet
 })
 
-const publicLayoutRoute = createRoute({
+export const publicLayoutRoute = createRoute({
   getParentRoute: () => rootRoute,
   id: "public",
   component: PublicLayout,
 })
 
-const privateLayoutRoute = createRoute({
+export const privateLayoutRoute = createRoute({
   getParentRoute: () => rootRoute,
   id: "private",
   component: PrivateLayout,
@@ -35,6 +36,7 @@ const dashboardRoute = createRoute({
 
 publicLayoutRoute.addChildren([
   loginRoute,
+  registerRoute,
 ])
 
 privateLayoutRoute.addChildren([
