@@ -7,7 +7,7 @@ export const typographyVariants = cva("", {
       h2: "text-2xl leading-snug font-semibold tracking-tight",
       h3: "text-xl leading-snug font-semibold tracking-tight",
       p: "text-base leading-7",
-      small: "text-sm leading-none font-medium",
+      small: "text-xs leading-none font-medium",
     },
   },
   defaultVariants: {

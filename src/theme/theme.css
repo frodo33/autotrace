@@ -21,7 +21,6 @@
 :root {
   --font-main: "Inter";
   --font-mono: "JetBrainsMono";
-  --background-gradient: linear-gradient(135deg, #f0f4f8 0%, #dbeafe 100%);
 
   --background: #e5e7eb;
   --foreground: #111827;
@@ -40,8 +39,6 @@
 }
 
 .dark {
-  --background-gradient: linear-gradient(135deg, #0f172a 0%, #1c2536 30%, #111827 100%);
-
   --background: #111827;
   --foreground: #f9fafb;
   --card: rgba(255, 255, 255, 0.05);
@@ -60,5 +57,5 @@
 
 body {
   font-family: var(--font-main), sans-serif;
-  background-image: var(--background-gradient);
+  background-color: var(--background);
 }

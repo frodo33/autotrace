@@ -23,7 +23,7 @@ export const TextField = <T extends boolean = false>({
   
   return (
     <>
-      {label && <Label htmlFor={id} className="mb-1">{label}</Label>}
+      {label && <Label htmlFor={id} className="mb-1 text-xs">{label}</Label>}
       <InputGroup
         data-disabled={props.disabled}
         className={cn(

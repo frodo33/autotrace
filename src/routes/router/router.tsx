@@ -3,7 +3,7 @@ import { createRootRoute, createRoute, Outlet } from "@tanstack/react-router";
 import { PrivateLayout } from "../layouts/Private.layout";
 import { PublicLayout } from "../layouts/Public.layout";
 import { LoginPage } from "../pages/auth/LoginPage/Login.page";
-import { registerRoute } from "../pages/auth/RegisterPage/Register.page";
+import { registerRoute } from "../pages/auth/RegisterPage/Register.route";
 import { DashboardPage } from "../pages/DashboardPage/DashboardPage.page";
 
 const rootRoute = createRootRoute({
