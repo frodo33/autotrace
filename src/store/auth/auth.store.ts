@@ -2,26 +2,29 @@ import { create } from "zustand"
 
 export type User = {
   id: string
-  name: string
-  roles?: string[]
+  email: string
 }
 
 export type AuthState = {
-  isAuthenticated: boolean
-  token?: string
   user?: User
-  setAuth: (token: string, user: User) => void
+  token?: string
+  isAuthenticated: boolean
+  isLoadingSession: boolean
+  setSession: (token: string, user: User) => void
+  setLoading: (loading: boolean) => void
   reset: () => void
 }
 
 export const initialState = {
-  isAuthenticated: false,
+  user: undefined,
   token: undefined,
-  user: undefined
+  isAuthenticated: false,
+  isLoadingSession: true,
 } 
 
 export const useAuthStore = create<AuthState>((set) => ({
   ...initialState,
-  setAuth: (token: string, user: User) => set({ token, user, isAuthenticated: true }),
-  reset: () => set({ ...initialState })
+  setSession: (token: string, user: User) => set({ token, user, isAuthenticated: true }),
+  setLoading: (loading: boolean) => set({ isLoadingSession: loading }),
+  reset: () => set({ ...initialState, isLoadingSession: false })
 }))

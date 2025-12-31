@@ -1,11 +1,13 @@
 import { Link } from "@tanstack/react-router"
 import { FormProvider, useForm } from "react-hook-form"
 
+import { useLogin } from "@/api/auth/hooks/useLogin"
 import { Button } from "@/components/controls/button/Button.component"
 import { TextFieldController } from "@/components/controls/textFieldController/TextFieldController.component"
 import { Typography } from "@/components/controls/typography/Typography.component"
 
 export const LoginPage = () => {
+  const login = useLogin()
   const form = useForm({
     defaultValues: {
       email: "",
@@ -15,7 +17,12 @@ export const LoginPage = () => {
   })
 
   const handleSubmit = form.handleSubmit(async (values) => {
-    console.log(values, "lelel")
+    try {
+      await login.mutateAsync({ email: values.email, password: values.password })
+      
+    } catch(err) {
+      console.log("error", { err })
+    }
   })
   
   return (

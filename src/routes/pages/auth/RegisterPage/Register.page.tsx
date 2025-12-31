@@ -1,11 +1,14 @@
 import { Link } from "@tanstack/react-router"
 import { FormProvider, useForm } from "react-hook-form"
 
+import { useRegister } from "@/api/auth/hooks/useRegister"
 import { Button } from "@/components/controls/button/Button.component"
 import { TextFieldController } from "@/components/controls/textFieldController/TextFieldController.component"
 import { Typography } from "@/components/controls/typography/Typography.component"
 
 export const RegisterPage = () => {
+  const { mutateAsync, isPending } = useRegister()
+
   const form = useForm({
     defaultValues: {
       email: "",
@@ -17,6 +20,16 @@ export const RegisterPage = () => {
 
   const handleSubmit = form.handleSubmit(async (values) => {
     console.log(values, "lelel")
+    const payload = {
+      email: values.email,
+      password: values.password,
+    }
+    try {
+      const response = await mutateAsync(payload)
+      console.log({ response })
+    } catch(err) {
+      console.log({ err })
+    }
   })
   
   return (

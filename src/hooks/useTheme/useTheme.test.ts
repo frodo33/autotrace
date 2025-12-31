@@ -2,7 +2,7 @@ import { act, renderHook } from "@testing-library/react"
 import { describe, it, expect, beforeEach, afterEach } from "vitest"
 
 import { useTheme } from "./useTheme"
-import { localStorageMock } from "@/tests/test-utils/localStorageMock"
+import { localStorageMock } from "@/tests/utils/localStorageMock"
 
 const resetDOMAndStorage = () => {
   window.localStorage.clear()

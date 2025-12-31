@@ -1,8 +1,9 @@
 import { createRootRoute, createRoute, Outlet } from "@tanstack/react-router";
 
+import { redirectIfAuth, requireAuth } from "./guards";
 import { PrivateLayout } from "../layouts/Private.layout";
 import { PublicLayout } from "../layouts/Public.layout";
-import { LoginPage } from "../pages/auth/LoginPage/Login.page";
+import { loginRoute } from "../pages/auth/LoginPage/Login.route";
 import { registerRoute } from "../pages/auth/RegisterPage/Register.route";
 import { DashboardPage } from "../pages/DashboardPage/DashboardPage.page";
 
@@ -14,18 +15,14 @@ export const publicLayoutRoute = createRoute({
   getParentRoute: () => rootRoute,
   id: "public",
   component: PublicLayout,
+  beforeLoad: redirectIfAuth,
 })
 
 export const privateLayoutRoute = createRoute({
   getParentRoute: () => rootRoute,
   id: "private",
   component: PrivateLayout,
-})
-
-const loginRoute = createRoute({
-  getParentRoute: () => publicLayoutRoute,
-  path: "login",
-  component: LoginPage
+  beforeLoad: requireAuth,
 })
 
 const dashboardRoute = createRoute({

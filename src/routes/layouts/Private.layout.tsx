@@ -3,9 +3,11 @@ import { Outlet } from "@tanstack/react-router"
 import { Label } from "../../components/ui/label"
 import { Switch } from "../../components/ui/switch"
 import { useTheme } from "../../hooks/useTheme/useTheme"
+import { useLogout } from "@/api/auth/hooks/useLogout"
 
 export const PrivateLayout = () => {
   const { theme, toggleTheme } = useTheme()
+  const logout = useLogout()
 
   return (
     <div className="container mx-auto flex min-h-screen flex-col px-4">
@@ -21,6 +23,8 @@ export const PrivateLayout = () => {
             Dark mode
         </Label>
       </div>
+
+      <button onClick={() => logout.mutate()}>logout</button>
       
       <div className="flex flex-1 items-center justify-center p-4">
         <Outlet />
