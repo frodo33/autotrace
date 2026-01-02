@@ -14,10 +14,10 @@ export const useSession = () => {
 
       const { data: { session } } = await supabase.auth.getSession()
 
-      if (session.user && session.access_token) {
+      if (session?.user && session?.access_token) {
         setSession(session.access_token, {
           id: session.user.id,
-          email: session.user.email,
+          email: session?.user.email,
         })
       } else {
         reset()

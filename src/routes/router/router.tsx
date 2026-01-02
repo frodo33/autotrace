@@ -31,6 +31,18 @@ const dashboardRoute = createRoute({
   component: DashboardPage
 })
 
+const aaaRoute = createRoute({
+  getParentRoute: () => privateLayoutRoute,
+  path: "/aaa",
+  component: DashboardPage
+})
+
+const bbbRoute = createRoute({
+  getParentRoute: () => privateLayoutRoute,
+  path: "/bbb",
+  component: DashboardPage
+})
+
 publicLayoutRoute.addChildren([
   loginRoute,
   registerRoute,
@@ -38,6 +50,8 @@ publicLayoutRoute.addChildren([
 
 privateLayoutRoute.addChildren([
   dashboardRoute,
+  aaaRoute,
+  bbbRoute,
 ])
 
 export const routeTree = rootRoute.addChildren([
