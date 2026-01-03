@@ -7,7 +7,7 @@ export type NavItemModel = {
 	Icon: ComponentType<{ className?: string }>
 }
 
-export const navConfig = () => [
+export const navConfig = (): NavItemModel[] => [
   {
     name: "Home",
     path: "/",
@@ -19,7 +19,7 @@ export const navConfig = () => [
     Icon: History,
   },
   {
-    name: "Home",
+    name: "eeee",
     path: "/bbb",
     Icon: History,
   },
