@@ -1,6 +1,7 @@
-import { createRootRoute, createRoute, Outlet } from "@tanstack/react-router";
+import { createRootRoute, createRoute, createRouter, Navigate, Outlet } from "@tanstack/react-router";
 
 import { redirectIfAuth, requireAuth } from "./guards";
+import { Routes } from "./routes.config";
 import { PrivateLayout } from "../layouts/Private.layout";
 import { PublicLayout } from "../layouts/Public.layout";
 import { loginRoute } from "../pages/auth/LoginPage/Login.route";
@@ -27,19 +28,19 @@ export const privateLayoutRoute = createRoute({
 
 const dashboardRoute = createRoute({
   getParentRoute: () => privateLayoutRoute,
-  path: "/",
+  path: Routes.PRIVATE.DASHBOARD,
   component: DashboardPage
 })
 
 const aaaRoute = createRoute({
   getParentRoute: () => privateLayoutRoute,
-  path: "/aaa",
+  path: Routes.PRIVATE.AAA,
   component: DashboardPage
 })
 
 const bbbRoute = createRoute({
   getParentRoute: () => privateLayoutRoute,
-  path: "/bbb",
+  path: Routes.PRIVATE.BBB,
   component: DashboardPage
 })
 
@@ -58,3 +59,8 @@ export const routeTree = rootRoute.addChildren([
   publicLayoutRoute,
   privateLayoutRoute,
 ])
+
+export const router = createRouter({
+  routeTree,
+  defaultNotFoundComponent: () => <Navigate to="/" replace />
+})

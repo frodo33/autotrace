@@ -5,6 +5,7 @@ import { useLogin } from "@/api/auth/hooks/useLogin"
 import { Button } from "@/components/controls/button/Button.component"
 import { TextFieldController } from "@/components/controls/textFieldController/TextFieldController.component"
 import { Typography } from "@/components/controls/typography/Typography.component"
+import { Routes } from "@/routes/router/routes.config"
 
 export const LoginPage = () => {
   const login = useLogin()
@@ -54,7 +55,7 @@ export const LoginPage = () => {
           <Typography variant="small">Don&apos;t have an account?&nbsp;</Typography>
           <Button type="submit" variant="link" className="p-0 text-xs" asChild>
             {/* TODO: path as variable */}
-            <Link to="/register">Sign up</Link>
+            <Link to={Routes.PUBLIC.REGISTER}>Sign up</Link>
           </Button>
         </div>
       </div>

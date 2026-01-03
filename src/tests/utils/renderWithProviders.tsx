@@ -39,7 +39,7 @@ export const renderWithProviders = ({
     createRoute({
       getParentRoute: () => rootRoute,
       path,
-      component: () => ui
+      component: () => <>{ui}</>
     })
   );
 
