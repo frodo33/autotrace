@@ -1,6 +1,6 @@
 import { useEffect } from "react"
 
-import { supabase } from "@/lib/supabaseClient"
+import { supabase } from "@/services/supabaseClient"
 import { useAuthStore } from "@/store/auth/auth.store"
 
 export const useSession = () => {

@@ -1,5 +1,5 @@
 import type { RegisterUserPostModel } from "./auth.types"
-import { supabase } from "@/lib/supabaseClient"
+import { supabase } from "@/services/supabaseClient"
 
 export const registerUser = async ({ email, password }: RegisterUserPostModel) => {
   const { data, error } = await supabase.auth.signUp({ email, password })
