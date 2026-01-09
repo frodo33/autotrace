@@ -18,20 +18,18 @@ export const RegisterPage = () => {
 
       <div className="flex items-center justify-center">
         <Typography variant="small">
-          <Trans
-            i18nKey="user:register:alreadyHaveAccount"
-            components={{
-              link: (
-                <Button 
-                  variant="link"
-                  className="p-0 text-xs"
-                  asChild
-                >
-                  <Link to={Routes.PUBLIC.LOGIN} />
-                </Button>
-              )
-            }}
-          />
+          <Trans i18nKey="user:register:alreadyHaveAccount">
+            Already have an account?&nbsp;
+            <Button 
+              variant="link"
+              className="p-0 text-xs"
+              asChild
+            >
+              <Link to={Routes.PUBLIC.LOGIN}>
+                Sign in
+              </Link>
+            </Button>
+          </Trans>
         </Typography>
       </div>
     </div>
