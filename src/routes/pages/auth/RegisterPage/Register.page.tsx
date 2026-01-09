@@ -1,7 +1,6 @@
 import { Link } from "@tanstack/react-router"
 import { Trans, useTranslation } from "react-i18next"
 
-import { Button } from "@/components/controls/button/Button.component"
 import { Typography } from "@/components/controls/typography/Typography.component"
 import { RegisterForm } from "@/components/forms/RegisterForm/RegisterForm.component"
 import { Routes } from "@/routes/router/routes.config"
@@ -17,18 +16,15 @@ export const RegisterPage = () => {
       <RegisterForm />
 
       <div className="flex items-center justify-center">
-        <Typography variant="small">
+        <Typography variant="small" className="my-3">
           <Trans i18nKey="user:register:alreadyHaveAccount">
             Already have an account?&nbsp;
-            <Button 
-              variant="link"
-              className="p-0 text-xs"
-              asChild
+            <Link
+              to={Routes.PUBLIC.LOGIN}
+              className="text-primary text-xs"
             >
-              <Link to={Routes.PUBLIC.LOGIN}>
-                Sign in
-              </Link>
-            </Button>
+              Sign in
+            </Link>
           </Trans>
         </Typography>
       </div>
