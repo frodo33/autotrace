@@ -7,6 +7,7 @@ import { PublicLayout } from "../layouts/Public.layout";
 import { loginRoute } from "../pages/auth/LoginPage/Login.route";
 import { registerRoute } from "../pages/auth/RegisterPage/Register.route";
 import { DashboardPage } from "../pages/DashboardPage/DashboardPage.page";
+import { userProfileRoute } from "../pages/UserProfilePage/UserProfile.route";
 
 const rootRoute = createRootRoute({
   component: Outlet
@@ -34,13 +35,13 @@ const dashboardRoute = createRoute({
 
 const aaaRoute = createRoute({
   getParentRoute: () => privateLayoutRoute,
-  path: Routes.PRIVATE.AAA,
+  path: Routes.PRIVATE.HISTORY,
   component: DashboardPage
 })
 
 const bbbRoute = createRoute({
   getParentRoute: () => privateLayoutRoute,
-  path: Routes.PRIVATE.BBB,
+  path: Routes.PRIVATE.SETTINGS,
   component: DashboardPage
 })
 
@@ -53,6 +54,7 @@ privateLayoutRoute.addChildren([
   dashboardRoute,
   aaaRoute,
   bbbRoute,
+  userProfileRoute,
 ])
 
 export const routeTree = rootRoute.addChildren([

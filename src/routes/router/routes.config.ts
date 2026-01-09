@@ -5,7 +5,8 @@ export const Routes = {
   },
   PRIVATE: {
     DASHBOARD: "/",
-    AAA: "/aaa",
-    BBB: "/bbb",
+    HISTORY: "/history",
+    PROFILE: "/profile",
+    SETTINGS: "/settings",
   },
 }

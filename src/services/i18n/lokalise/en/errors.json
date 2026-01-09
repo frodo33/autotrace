@@ -1,0 +1,12 @@
+{
+  "unexpected": "An unexpected error occurred. Please try again.",
+  "validation": {
+    "field_required": "This field is required",
+    "password_too_short": "Password must be at least 8 characters long",
+    "password_uppercase_required": "Password must contain at least one uppercase letter",
+    "password_number_required": "Password must contain at least one number",
+    "password_symbol_required": "Password must contain at least one symbol",
+    "password_not_match": "Passwords do not match",
+    "email_invalid": "Please enter a valid email address"
+  }
+}

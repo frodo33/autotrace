@@ -1,10 +1,12 @@
 import type { RegisterUserPostModel } from "./auth.types"
 import { supabase } from "@/services/supabaseClient"
 
-export const registerUser = async ({ email, password }: RegisterUserPostModel) => {
-  const { data, error } = await supabase.auth.signUp({ email, password })
-
-  if (error) throw error
+export const registerUser = async ({ email, password, username }: RegisterUserPostModel) => {
+  const { data, error } = await supabase.functions.invoke("register", {
+    body: { email, password, username }
+  })
+  
+  if (error) throw await error.context.json()
 
   return data
 }

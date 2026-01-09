@@ -16,6 +16,7 @@
   --color-muted: var(--muted);
   --color-muted-foreground: var(--muted-foreground);
   --color-ring: var(--ring);
+  --color-success: var(--success);
 }
 
 :root {
@@ -36,6 +37,7 @@
   --muted: #f3f4f6;
   --muted-foreground: #6b7280;
   --ring: #475569;
+  --success: #22c55e;
 }
 
 .dark {
@@ -53,9 +55,33 @@
   --muted: #1f2937;
   --muted-foreground: #9ca3af;
   --ring: #94a3b8;
+  --success: #16a34a;
 }
 
 body {
   font-family: var(--font-main), sans-serif;
   background-color: var(--background);
+}
+
+input:-webkit-autofill,
+input:-webkit-autofill:focus,
+input:-webkit-autofill:hover
+textarea:-webkit-autofill,
+textarea:-webkit-autofill:hover,
+textarea:-webkit-autofill:focus,
+select:-webkit-autofill,
+select:-webkit-autofill:hover,
+select:-webkit-autofill:focus {
+  -webkit-box-shadow: 0 0 0px 100px transparent inset;
+  -webkit-text-fill-color: var(--foreground);
+  transition: background-color 5000s ease-in-out 0s;
+  border-radius: inherit;
+}
+
+.Toastify__toast--success {
+  @apply bg-success!;
+}
+
+.Toastify__toast--error {
+  @apply bg-destructive!;
 }
