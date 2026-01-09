@@ -15,6 +15,7 @@ export const TextField = <T extends boolean = false>({
   invalid,
   helperText,
   className,
+  inputGroupClassName,
   addons,
   textarea,
   ...props
@@ -22,14 +23,14 @@ export const TextField = <T extends boolean = false>({
   const helperId = helperText ? `${id}-helper` : undefined
   
   return (
-    <>
+    <div className={className}>
       {label && <Label htmlFor={id} className="mb-1 text-xs">{label}</Label>}
       <InputGroup
         data-disabled={props.disabled}
         className={cn(
           "[&:has([data-slot=input-group-control]:focus-visible)]:border-ring/70 [&:has([data-slot=input-group-control]:focus-visible)]:ring-0",
           props.disabled && "bg-muted dark:bg-muted cursor-not-allowed",
-          className
+          inputGroupClassName
         )}
       >
         {textarea ? (
@@ -62,13 +63,13 @@ export const TextField = <T extends boolean = false>({
           role={invalid ? "alert" : undefined}
           variant="small"
           className={cn(
-            "mt-1 mr-auto text-left text-xs",
+            "mt-1 mr-auto text-left text-xs whitespace-pre-line",
             invalid ? "text-destructive" : "text-muted-foreground"
           )}
         >
           {helperText}
         </Typography>
       )}
-    </>
+    </div>
   )
 }

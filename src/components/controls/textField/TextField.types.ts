@@ -9,6 +9,7 @@ export type TextFieldOwnProps = {
   invalid?: boolean
   helperText?: string
   className?: string
+  inputGroupClassName?: string
   addons?: ReactNode
   textarea?: boolean
 }

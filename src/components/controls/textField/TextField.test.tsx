@@ -87,8 +87,15 @@ describe("TextField", () => {
 
   it("applies classes correctly", () => {
     const { container } = render(
-      <TextField id={id} className="my-class" />
+      <TextField
+        id={id}
+        className="my-class"
+        inputGroupClassName="my-group-class"
+      />
     )
+    const wrapper = container.querySelector("div.my-group-class")
+    expect(wrapper).toBeInTheDocument()
+
     const inputGroup = container.querySelector(".my-class")
     expect(inputGroup).toBeInTheDocument()
   })
