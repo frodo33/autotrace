@@ -3,7 +3,7 @@ import { useTranslation } from "react-i18next"
 
 import type { RegisterFormState } from "./RegisterForm.types"
 import { RegisterFormSchema } from "./RegisterForm.validation"
-import { useRegister } from "@/api/auth/hooks/useRegister"
+import { useRegister } from "@/api/auth/hooks/useRegister/useRegister"
 import { Button } from "@/components/controls/button/Button.component"
 import { TextFieldController } from "@/components/controls/textFieldController/TextFieldController.component"
 import { useFormErrorHandler } from "@/hooks/useFormErrorHandler/useFormErrorHandler"

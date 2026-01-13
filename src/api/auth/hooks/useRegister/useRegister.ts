@@ -3,7 +3,7 @@ import { useNavigate } from "@tanstack/react-router"
 import { useTranslation } from "react-i18next"
 import { toast } from "react-toastify"
 
-import { registerUser } from "../auth.api"
+import { registerUser } from "../../auth.api"
 import { Routes } from "@/routes/router/routes.config"
 import { supabase } from "@/services/supabaseClient"
 
