@@ -1,8 +1,8 @@
 import { FormProvider, useForm } from "react-hook-form"
 
-import { Button } from "@/components/controls/button/Button.component"
+import { Button } from "@/components/common/Button/Button.component"
 import { TextFieldController } from "@/components/controls/textFieldController/TextFieldController.component"
-import { Typography } from "@/components/controls/typography/Typography.component"
+import { Typography } from "@/components/common/Typography/Typography.component"
 
 export const ChangePasswordForm = () => {
 //   const login = useLogin()

@@ -1,7 +1,7 @@
 import { FormProvider, useForm } from "react-hook-form"
 
 import { TextFieldController } from "@/components/controls/textFieldController/TextFieldController.component"
-import { Typography } from "@/components/controls/typography/Typography.component"
+import { Typography } from "@/components/common/Typography/Typography.component"
 
 export const ChangeLanguageForm = () => {
   const form = useForm({

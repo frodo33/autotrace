@@ -1,7 +1,7 @@
 import type { ComponentProps } from "react"
 
 import type { TextFieldOwnProps, TextFieldProps } from "./TextField.types"
-import { Typography } from "../typography/Typography.component"
+import { Typography } from "../../common/Typography/Typography.component"
 import { InputGroup, InputGroupInput, InputGroupTextarea } from "@/components/ui/input-group"
 import { Label } from "@/components/ui/label"
 import { cn } from "@/lib/utils"

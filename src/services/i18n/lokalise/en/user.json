@@ -1,4 +1,5 @@
 {
+  "logout": "Log out",
   "usernameLabel": "Username",
   "emailLabel": "Email",
   "passwordLabel": "Password",
@@ -14,5 +15,8 @@
     "subtitle": "Log in to continue and access your account",
     "submit": "Log in",
     "noAccountPrompt": "Don't have an account? <1>Sign up</1>"
+  },
+  "userMenu": {
+    "profile": "Profile"
   }
 }

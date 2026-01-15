@@ -1,7 +1,7 @@
 import { Link } from "@tanstack/react-router"
 import { Trans, useTranslation } from "react-i18next"
 
-import { Typography } from "@/components/controls/typography/Typography.component"
+import { Typography } from "@/components/common/Typography/Typography.component"
 import { RegisterForm } from "@/components/forms/RegisterForm/RegisterForm.component"
 import { Routes } from "@/routes/router/routes.config"
 

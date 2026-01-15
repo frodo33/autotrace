@@ -3,7 +3,7 @@ import { LogOutIcon, MenuIcon  } from "lucide-react"
 import { type NavItemModel } from "../nav.config"
 import { NavItem } from "../navItem/NavItem.component"
 import { useLogout } from "@/api/auth/hooks/useLogout"
-import { Button } from "@/components/controls/button/Button.component"
+import { Button } from "@/components/common/Button/Button.component"
 import { Sheet, SheetClose, SheetContent, SheetDescription, SheetFooter, SheetHeader, SheetTitle, SheetTrigger } from "@/components/ui/sheet"
 
 export const NavMobile = ({ navItems }: { navItems: NavItemModel[] }) => {

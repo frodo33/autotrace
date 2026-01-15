@@ -1,6 +1,6 @@
 import { useLogin } from "@/api/auth/hooks/useLogin/useLogin"
-import { Button } from "@/components/controls/button/Button.component"
-import { Typography } from "@/components/controls/typography/Typography.component"
+import { Button } from "@/components/common/Button/Button.component"
+import { Typography } from "@/components/common/Typography/Typography.component"
 import { ChangeLanguageForm } from "@/components/features/user-profile/ChangeLanguageForm/ChangeLanguageForm.component"
 import { ChangePasswordForm } from "@/components/features/user-profile/ChangePasswordForm/ChangePasswordForm.component"
 import { DeleteAccountButton } from "@/components/features/user-profile/DeleteAccountButton/DeleteAccountButton.component"

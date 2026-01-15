@@ -6,7 +6,7 @@ import type { LoginFormState } from "./LoginForm.types"
 import { LoginFormSchema } from "./LoginForm.validation"
 import type { ApiErrorResponse } from "@/api/api.types"
 import { useLogin } from "@/api/auth/hooks/useLogin/useLogin"
-import { Button } from "@/components/controls/button/Button.component"
+import { Button } from "@/components/common/Button/Button.component"
 import { TextFieldController } from "@/components/controls/textFieldController/TextFieldController.component"
 import { useYupResolver } from "@/hooks/useYupResolver"
 
