@@ -1,12 +1,13 @@
 import { create } from "zustand"
 
-export type User = {
+export type AppUser = {
   id: string
   email: string
+  username: string
 }
 
 export type AuthState = {
-  user?: User
+  user?: AppUser
   token?: string
   isAuthenticated: boolean
   isLoadingSession: boolean

@@ -3,3 +3,8 @@ export type RegisterUserPostModel = {
   password: string
   username: string
 }
+
+export type LoginPostModel = {
+  email: string
+  password: string
+}

@@ -1,5 +1,6 @@
 import { useEffect } from "react"
 
+import { mapSupabaseUser } from "../auth.utils"
 import { supabase } from "@/services/supabaseClient"
 import { useAuthStore } from "@/store/auth/auth.store"
 
@@ -15,10 +16,7 @@ export const useSession = () => {
       const { data: { session } } = await supabase.auth.getSession()
 
       if (session?.user && session?.access_token) {
-        setSession(session.access_token, {
-          id: session.user.id,
-          email: session?.user.email,
-        })
+        setSession(session.access_token, mapSupabaseUser(session?.user))
       } else {
         reset()
       }
@@ -30,10 +28,7 @@ export const useSession = () => {
 
     const { data: { subscription } } = supabase.auth.onAuthStateChange((_event, session) => {
       if (session?.user && session.access_token) {
-        setSession(session.access_token, {
-          id: session.user.id,
-          email: session.user.email,
-        });
+        setSession(session.access_token, mapSupabaseUser(session?.user))
       } else {
         reset();
       }

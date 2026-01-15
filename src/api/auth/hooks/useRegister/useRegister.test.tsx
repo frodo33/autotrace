@@ -2,33 +2,16 @@ import type { ReactNode } from "react"
 import { QueryClient, QueryClientProvider } from "@tanstack/react-query"
 import { act, renderHook } from "@testing-library/react"
 import { toast } from "react-toastify"
-import { describe, it, expect, vi, beforeEach, type Mock } from "vitest"
+import { describe, it, expect, vi, beforeEach } from "vitest"
 
 import { useRegister } from "./useRegister"
+import { loginWithEmail, registerUser } from "../../auth.api"
 import { Routes } from "@/routes/router/routes.config"
-import { supabase } from "@/services/supabaseClient"
-
-vi.mock("react-i18next", () => ({
-  useTranslation: () => ({ t: (key: string) => key })
-}))
-
-vi.mock("react-toastify", () => ({
-  toast: { error: vi.fn() }
-}))
 
 vi.mock("../../auth.api", () => ({
-  registerUser: vi.fn()
+  registerUser: vi.fn(),
+  loginWithEmail: vi.fn()
 }))
-
-vi.mock("@/services/supabaseClient", () => ({
-  supabase: {
-    auth: {
-      signInWithPassword: vi.fn()
-    }
-  }
-}))
-
-const signInMock = supabase.auth.signInWithPassword as Mock
 
 const navigateMock = vi.fn()
 vi.mock("@tanstack/react-router", async () => {
@@ -61,8 +44,9 @@ describe("useRegister", () => {
     vi.clearAllMocks()
   })
   
-  it("navigates to dashboard when login succeeds", async () => {
-    signInMock.mockResolvedValueOnce({ error: null })
+  it("navigates to dashboard when register and login succeeds", async () => {
+    vi.mocked(registerUser).mockResolvedValueOnce(undefined)
+    vi.mocked(loginWithEmail).mockResolvedValueOnce(undefined)
 
     const { result } = renderHook(() => useRegister(), { wrapper: createWrapper() })
 
@@ -74,13 +58,16 @@ describe("useRegister", () => {
       })
     })
 
+    expect(registerUser).toHaveBeenCalledOnce()
+    expect(loginWithEmail).toHaveBeenCalledOnce()
     expect(navigateMock).toHaveBeenCalledExactlyOnceWith({
       to: Routes.PRIVATE.DASHBOARD
     })
   })
 
-  it("shows error toast and redirects to login when login fails", async () => {
-    signInMock.mockResolvedValueOnce({ error: new Error() })
+  it("shows error toast and navigates to login when login fails", async () => {
+    vi.mocked(registerUser).mockResolvedValueOnce(undefined)
+    vi.mocked(loginWithEmail).mockRejectedValueOnce(new Error())
 
     const { result } = renderHook(() => useRegister(), { wrapper: createWrapper() })
 
@@ -92,8 +79,8 @@ describe("useRegister", () => {
       })
     })
 
+    expect(registerUser).toHaveBeenCalledOnce()
     expect(toast.error).toHaveBeenCalledExactlyOnceWith("errors:unexpected")
-
     expect(navigateMock).toHaveBeenCalledExactlyOnceWith({
       to: Routes.PUBLIC.LOGIN
     })

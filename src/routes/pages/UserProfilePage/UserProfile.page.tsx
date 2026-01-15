@@ -1,4 +1,4 @@
-import { useLogin } from "@/api/auth/hooks/useLogin"
+import { useLogin } from "@/api/auth/hooks/useLogin/useLogin"
 import { Button } from "@/components/controls/button/Button.component"
 import { Typography } from "@/components/controls/typography/Typography.component"
 import { ChangeLanguageForm } from "@/components/features/user-profile/ChangeLanguageForm/ChangeLanguageForm.component"

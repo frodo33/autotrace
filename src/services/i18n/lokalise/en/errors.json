@@ -7,6 +7,7 @@
     "password_number_required": "Password must contain at least one number",
     "password_symbol_required": "Password must contain at least one symbol",
     "password_not_match": "Passwords do not match",
-    "email_invalid": "Please enter a valid email address"
+    "email_invalid": "Please enter a valid email address",
+    "invalid_credentials": "Invalid email or password"
   }
 }

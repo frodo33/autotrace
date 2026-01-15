@@ -16,6 +16,7 @@ const queryClient = new QueryClient()
 export const AppProvider = () => {
   useSession()
   const isLoading = useAuthStore(state => state.isLoadingSession)
+  console.log("STORE", useAuthStore.getState())
 
   const toastProps: ToastContainerProps = {
     position: "bottom-left",

@@ -1,62 +1,38 @@
 import { Link } from "@tanstack/react-router"
-import { FormProvider, useForm } from "react-hook-form"
+import { Trans, useTranslation } from "react-i18next"
 
-import { useLogin } from "@/api/auth/hooks/useLogin"
-import { Button } from "@/components/controls/button/Button.component"
-import { TextFieldController } from "@/components/controls/textFieldController/TextFieldController.component"
 import { Typography } from "@/components/controls/typography/Typography.component"
+import { LoginForm } from "@/components/forms/LoginForm/LoginForm.component"
 import { Routes } from "@/routes/router/routes.config"
 
 export const LoginPage = () => {
-  const login = useLogin()
-  const form = useForm({
-    defaultValues: {
-      email: "",
-      password: ""
-    },
-    mode: "all",
-  })
-
-  const handleSubmit = form.handleSubmit(async (values) => {
-    try {
-      await login.mutateAsync({ email: values.email, password: values.password })
-      
-    } catch(err) {
-      console.log("error", { err })
-    }
-  })
+  const { t } = useTranslation()
   
   return (
     <>
       <div className="bg-popover border-popover-border w-full max-w-md rounded-3xl border p-6 shadow-2xl backdrop-blur-lg">
-        <Typography variant="h1">Welcome Back</Typography>
-        <Typography variant="p">Log in to continue and access your account</Typography>
-        <FormProvider {...form}>
-          <form onSubmit={handleSubmit} className="mt-6">
-            <TextFieldController
-              name="email"
-              label="Email"
-              className="mb-4"
-            />
-            <TextFieldController
-              type="password"
-              name="password"
-              label="Password"
-              className="mb-4"
-            />
+        <Typography variant="h1">
+          {t("user:login:title")}
+        </Typography>
 
-            <div className="border-muted-foreground my-8 border-t" />
-
-            <Button type="submit" size="lg" className="w-full">Create account</Button>
-          </form>
-        </FormProvider>
+        <Typography variant="p">
+          {t("user:login:subtitle")}
+        </Typography>
+        
+        <LoginForm />
         
         <div className="flex items-center justify-center">
-          <Typography variant="small">Don&apos;t have an account?&nbsp;</Typography>
-          <Button type="submit" variant="link" className="p-0 text-xs" asChild>
-            {/* TODO: path as variable */}
-            <Link to={Routes.PUBLIC.REGISTER}>Sign up</Link>
-          </Button>
+          <Typography variant="small" className="my-3">
+            <Trans i18nKey="user:login:noAccountPrompt">
+              Don&apos;t have an account?&nbsp;
+              <Link
+                to={Routes.PUBLIC.REGISTER}
+                className="text-primary text-xs"
+              >
+                Sign up
+              </Link>
+            </Trans>
+          </Typography>
         </div>
       </div>
     </>

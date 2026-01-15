@@ -8,5 +8,11 @@
     "subtitle": "Create an account to continue",
     "submit": "Create account",
     "alreadyHaveAccount": "Already have an account? <1>Sign in</1>"
+  },
+  "login": {
+    "title": "Welcome back",
+    "subtitle": "Log in to continue and access your account",
+    "submit": "Log in",
+    "noAccountPrompt": "Don't have an account? <1>Sign up</1>"
   }
 }

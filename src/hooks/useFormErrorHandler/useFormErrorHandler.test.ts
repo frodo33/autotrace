@@ -5,14 +5,6 @@ import { describe, expect, it, vi } from "vitest";
 
 import { useFormErrorHandler } from "./useFormErrorHandler";
 
-vi.mock("react-toastify", () => ({
-  toast: { error: vi.fn() }
-}))
-
-vi.mock("react-i18next", () => ({
-  useTranslation: () => ({ t: (key: string) => key })
-}))
-
 type FormData = { username: string; password: string }
 
 const setup = () => renderHook(() => {
